@@ -5,13 +5,13 @@ import (
 	"time"
 )
 
-func pinger(c chan string) {
+func pinger(c chan<- string) {
 	for i := 0; ; i++ {
 		c <- "ping"
 	}
 }
 
-func printer(c chan string) {
+func printer(c <-chan string) {
 	for {
 		msg := <-c
 		fmt.Println(msg)
