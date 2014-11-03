@@ -12,7 +12,7 @@ func main() {
 	}()
 
 	select {
-	case <- time.After(3 * time.Second):
+	case <-time.After(3 * time.Second):
 		fmt.Println("Enough's enough")
 		close(ourCh)
 	}
