@@ -36,11 +36,11 @@ func main() {
 		c <- true
 		go func() {
 			mutex.Lock()
-			gCnt++
-			updateGoroutineCount()
 			myGid := gId
 			fmt.Printf("%d is began\n", gId)
 			gId++
+			gCnt++
+			updateGoroutineCount()
 			mutex.Unlock()
 
 			time.Sleep(time.Duration(rand.Int31n(100)) * time.Millisecond)
